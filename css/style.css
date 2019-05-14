@@ -1,0 +1,15 @@
+
+#map {
+    width: 100%;
+    height: 75vh;
+}
+
+#legend {
+    width: 100%;
+    min-height: 30px;
+}
+
+#party_select {
+    width: 100%;
+    min-height: 30px;
+}

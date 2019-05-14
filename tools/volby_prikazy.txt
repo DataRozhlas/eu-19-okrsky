@@ -1,0 +1,10 @@
+vfr2ogr --file 20190503_ST_UVOH.xml.zip --format GPKG --layer VolebniOkrsek --geom OriginalniHranice --dsn okrsky.gpkg
+---------------
+
+NOPE tippecanoe -o ./scratch/tiles.mbtiles -z 15 -pk -pC -b 20 -pS -pt ./data/data.json
+
+tippecanoe -o ./scratch/tiles.mbtiles -zg -pk -pC -pS -pt ./data/data.json
+
+mb-util ./scratch/tiles.mbtiles ./tiles --image_format=pbf
+
+aws s3 cp ./scratch/tiles s3://datarozhlas/eu-19-okrsky/tiles --recursive --acl public-read

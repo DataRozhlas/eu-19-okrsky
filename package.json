@@ -1,0 +1,29 @@
+{
+  "name": "samizdat-snodefall",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "node builder.js watch",
+    "build": "node builder.js build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataRozhlas/snodefall-builder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DataRozhlas/snodefall-builder/issues"
+  },
+  "homepage": "https://github.com/DataRozhlas/snodefall-builder#readme",
+  "dependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "babel-loader": "^8.0.5",
+    "clean-css": "^4.2.1",
+    "marked": "^0.6.2",
+    "node-yaml": "^3.2.0",
+    "webpack": "^4.30.0"
+  }
+}

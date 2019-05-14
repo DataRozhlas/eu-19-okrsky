@@ -1,26 +1,33 @@
 <div class="b-data__content" id="content">
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js"></script>
 
-<script type="text/javascript">document.getElementsByTagName('article')[0].classList.add('b-data--no-img');</script>
-<style>li{background:none !important;margin:0 !important;padding:0 !important}ul,ol{list-style:initial !important;font-size:medium !important;line-height:1.5 !important}hr{max-width:none !important}</style>
-<div class="row-main row-main--article">
-<h1 class="b-data__title b-data__title--sm">
-Data z mobilů:<br>Praha se denně nafoukne o polovinu, v centru jsou návštěvníci v převaze
-</h1>
-</div>
-<div class="row-main row-main--narrow">
-<p class="text-bold text-lg">Skoro 140 tisíc lidí přijede do Prahy každý den za prací. Míří hlavně do kancelářských budov a do centra města. S nimi pak dorazí i přes půl milionu návštěvníků. Ukázala to analýza dat o pohybu mobilních telefonů, kterou si nyní město nechává zpracovat.</p>
-<p class="meta meta--icon">
-	<span class="icon-svg icon-svg--bullet">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="https://www.irozhlas.cz/sites/all/themes/custom/irozhlas/img/bg/icons-svg.svg#icon-bullet" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-<!--[[ZPRAVY_SNOWFALL_METADATA:]]-->
-</p>
+  <script type="text/javascript">
+    document.getElementsByTagName('article')[0].classList.add('b-data--no-img');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css"><style>article li{background:0 0!important;margin:0!important;padding:0!important}article ol,article ul{list-style:initial!important;font-size:medium!important;line-height:1.5!important}article hr{max-width:none!important}#map{width:100%;height:75vh}#legend{width:100%;min-height:30px}#party_select{width:100%;min-height:30px}</style>
 
+  <div class="row-main row-main--article">
+    <h1 class="b-data__title b-data__title--sm" id="snfl-title-div">
+      <!--[[ZPRAVY_TITLE:]]-->
+    </h1>
+    <script>
+      if (window.location.href.indexOf("www.irozhlas") < 0) {
+        document.getElementById("snfl-title-div").innerHTML = "Data z mobilů:<br>Praha se denně nafoukne o polovinu, v centru jsou návštěvníci v převaze";
+      }
+    </script>
+  </div>
 
+  <div class="row-main row-main--narrow"> 
+    <p class="text-bold text-lg">
+      Skoro 140 tisíc lidí přijede do Prahy každý den za prací. Míří hlavně do kancelářských budov a do centra města. S nimi pak dorazí i přes půl milionu návštěvníků. Ukázala to analýza dat o pohybu mobilních telefonů, kterou si nyní město nechává zpracovat.
+    </p>
+  </div>
 
-<div class="b-inline b-inline--left"><div class="b-inline__wrap"><div class="b-inline__content"><div class="text-sm">
+  <!--[[ZPRAVY_SNOWFALL_METADATA:]]-->
+
+  <div class="row-main row-main--narrow">
+    
+    <div class="b-inline b-inline--left"><div class="b-inline__wrap"><div class="b-inline__content"><div class="text-sm">
     <p>
     <b>KAREL HYNEK MÁCHA</b>
     </p><p>
@@ -31,28 +38,21 @@ Data z mobilů:<br>Praha se denně nafoukne o polovinu, v centru jsou návštěv
 <p>Během dne se lidé v Praze soustřeďují v okolí administrativních center a obchodů, po poledni se tak nejvíc zahustí okolí Andělu, centrum Prahy (Vodičkova ulice a Petrské náměstí) a Brumlovka nedaleko Budějovické. Na poslední jmenované adrese sídlí řada velkých korporací, mezi nimi i Microsoft nebo ČEZ. Pro srovnání, na zmíněných místech je ve „špičce“ okolo šesti stovek osob na jeden hektar, průměr Prahy je 25 obyvatel na <a href="https://cs.wikipedia.org/wiki/Hektar">hektar</a> (Václavské náměstí má rozlohu asi 4 hektary).</p>
 <p>Naopak v noci se nejvíc lidí se „namačká“ ve Vršovicích, jde o 430 osob na hektar.</p>
 <p>Detaily si můžete prohlédnout v následující mapě, kterou z dat mobilních operátorů zpracoval pražský <a href="http://www.iprpraha.cz/">Institut plánování a rozvoje</a>.</p>
-<p></div><div class="row-main row-main--article"><em>Pokud vás zajímá, kolik lidí bývá ve dne a v noci ve vaší čtvrti, najděte si ji na mapě, přepněte se na časové řezy, vyberte přepínač hustota osob a potom pohybujte posuvníkem nahoře.</em></div><div class="row-main row-main--narrow"></p>
-<h2>Data na prodej</h2>
-<p><div class="b-inline b-inline--right"><div class="b-inline__wrap"><div class="b-inline__content"><div class="text-sm">
-    <p>
-    <b>KAREL HYNEK MÁCHA</b>
-    </p><p>
-    Karel Hynek Mácha (16. listopadu 1810 Praha-Malá Strana[1] – 6. listopadu 1836 Litoměřice[2]) byl český básník a prozaik, představitel českého romantismu a zakladatel moderní české poezie. Proslavil se jak svým životem, tak dílem, jemuž dominuje Máj (1836).
-    </p>
-</div></div></div></div></p>
+</div><div class="row-main row-main--article">
+<div id="party_select"></div>
+<div id="map"></div>
+<div id="legend">Vyberte obec v mapě.</div>
+</div><div class="row-main row-main--narrow">
+
+<h2 id="data-na-prodej">Data na prodej</h2>
 <p>I pokud netelefonujeme nebo neposíláme SMS, telefon pravidelně komunikuje s vysílači v síti mobilního operátora. Z dat o síle signálu a použité anténě je možné odvodit, kde se přibližně telefon nachází a jak dlouhou dobu na místě strávil.</p>
-<p>Mobilní operátor má <a href="https://www.zakonyprolidi.cz/cs/2005-127/zneni-20160919#p97-3">zákonnou povinnost</a> takové informace uchovávat, a to půl roku do minulosti, přistupovat k nim ale mohou jen bezpečnostní složky, typicky policie nebo rozvědka.</p>
-<p>Operátoři ale obdobné informace mohou anonymizovat (tedy zbavit identifikace konkrétního uživatele) a agregovat, tedy spojit informace o jednotlivcích do jakýchsi skupin. Výsledná obecná čísla pak přeprodávají dál, například marketingovým firmám či dopravním analytikům. Zpětně z nich nejde dovodit, kde se pohybuje každý jednotlivec, dávají ale určitý přehled o obecném chování obyvatel nějakého místa.</p>
+<p>Mobilní operátor má <a href="https://www.zakonyprolidi.cz/cs/2005-127/zneni-20160919#p97-3">„zákonnou povinnost“</a> takové informace uchovávat, a to půl roku do minulosti, přistupovat k nim ale mohou jen bezpečnostní složky, typicky policie nebo rozvědka.</p>
+<p>Operátoři ale obdobné informace mohou anonymizovat (tedy „zbavit“ identifikace konkrétního uživatele) a agregovat, tedy spojit informace o jednotlivcích do jakýchsi skupin. Výsledná obecná čísla pak přeprodávají dál, například marketingovým firmám či dopravním analytikům. Zpětně z nich nejde dovodit, kde se pohybuje každý jednotlivec, dávají ale určitý přehled o obecném chování obyvatel nějakého místa.</p>
 
-<p class="meta meta--right meta--big">
-<!--[[ZPRAVY_SNOWFALL_AUTHORS:FOOTER]]-->
-</p>
+    <p class="meta meta--right meta--big">
+      <!--[[ZPRAVY_SNOWFALL_AUTHORS:FOOTER]]-->
+    </p>
+  </div>
+  <!--[[ZPRAVY_SNOWFALL_RELATED:ARTICLES]]-->
 </div>
-<!--[[ZPRAVY_SNOWFALL_RELATED:ARTICLES]]-->
-</div>
-</article>
-</div>
-</div>
-</div><script>
-
-var links=document.getElementsByTagName('a');for(var i=0,linksLength=links.length;i<linksLength;i++){if(links[i].hostname!=window.location.hostname){links[i].target='_blank';links[i].rel='noopener noreferrer';};};</script>
+<script>!function(a){var e={};function t(r){if(e[r])return e[r].exports;var n=e[r]={i:r,l:!1,exports:{}};return a[r].call(n.exports,n,n.exports,t),n.l=!0,n.exports}t.m=a,t.c=e,t.d=function(a,e,r){t.o(a,e)||Object.defineProperty(a,e,{enumerable:!0,get:r})},t.r=function(a){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(a,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(a,"__esModule",{value:!0})},t.t=function(a,e){if(1&e&&(a=t(a)),8&e)return a;if(4&e&&"object"==typeof a&&a&&a.__esModule)return a;var r=Object.create(null);if(t.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:a}),2&e&&"string"!=typeof a)for(var n in a)t.d(r,n,function(e){return a[e]}.bind(null,n));return r},t.n=function(a){var e=a&&a.__esModule?function(){return a.default}:function(){return a};return t.d(e,"a",e),e},t.o=function(a,e){return Object.prototype.hasOwnProperty.call(a,e)},t.p="",t(t.s=0)}([function(a,e,t){"use strict";t.r(e);var r={1:{naz:"SNK Evropští demokraté",zkr:"SNK ED"},2:{naz:"Koalice SP a NO!",zkr:"Koal. SP a NO!"},3:{naz:"Klub angažovaných nestraníků",zkr:"KAN"},4:{naz:"NE Bruselu-Národní demokracie",zkr:"ND"},5:{naz:"Křesť.demokr.unie-Čs.str.lid.",zkr:"KDU-ČSL"},6:{naz:"Str.zdr.rozumu-NECHCEME EURO",zkr:"Rozumní"},7:{naz:"Koalice TOP 09 a STAN",zkr:"Koal.TOP09,STAN"},8:{naz:"Liberálně ekologická strana",zkr:"LES"},9:{naz:"LEV 21-Národní socialisté",zkr:"LEV 21"},10:{naz:"Komunistická str.Čech a Moravy",zkr:"KSČM"},11:{naz:"evropani.cz",zkr:"evropani"},12:{naz:"REPUBL.STR.ČECH,MORAVY A SLEZ.",zkr:"RSČMS"},13:{naz:"Fair play - HNPD",zkr:"HNPD"},14:{naz:"Česká str.sociálně demokrat.",zkr:"ČSSD"},15:{naz:"Českosl.strana socialistická",zkr:"ČSS"},16:{naz:"ANO 2011",zkr:"ANO 2011"},17:{naz:'"Strana rovných příležitostí"',zkr:'"SRP"'},18:{naz:"Moravané",zkr:"M"},19:{naz:"Česká strana regionů",zkr:"ČSR"},20:{naz:"Občanská demokratická strana",zkr:"ODS"},21:{naz:"VIZE 2014",zkr:"VIZE"},22:{naz:"Úsvit přímé demokr.T.Okamury",zkr:"Úsvit"},23:{naz:"Strana zelených",zkr:"SZ"},24:{naz:"Strana svobodných občanů",zkr:"Svobodní"},25:{naz:"Romská demokratická strana",zkr:"RDS"},26:{naz:"Komunistická str.Českosloven.",zkr:"KSČ"},27:{naz:"Volte Pr.Blok www.cibulka.net",zkr:"PB"},28:{naz:"ANTIBURSÍK - STOP EKOTERORU!",zkr:"ABS"},29:{naz:"Koalice DSSS a SPE",zkr:"Koal.DSSS a SPE"},30:{naz:"HNUTÍ SOCIÁLNĚ SLABÝCH",zkr:"HSS"},31:{naz:"Republika",zkr:"Republika"},32:{naz:"Česká pirátská strana",zkr:"Piráti"},33:{naz:"Česká Suverenita",zkr:"ČS"},34:{naz:"Koruna Česká (monarch.strana)",zkr:"KČ"},35:{naz:"Aktiv nezávislých občanů",zkr:"ANEO"},36:{naz:"Česká strana národně sociální",zkr:"ČSNS"},37:{naz:"Občanská konzervativní strana",zkr:"O.K.strana"},38:{naz:"Věci veřejné",zkr:"VV"},39:{naz:"OBČANÉ 2011",zkr:"OBČ_2011"}},n="https://data.irozhlas.cz";"localhost"==window.location.hostname&&(n="http://localhost");var o="<select>";Object.keys(r).forEach(function(a){o+='<option value="part_'+a+'">'+r[a].naz+"</option>"}),o+="</select>",document.getElementById("party_select").innerHTML=o;var l=new mapboxgl.Map({container:"map",style:"https://data.irozhlas.cz/mapa-domu/map_styl/style.json",zoom:6.85,maxZoom:15,attributionControl:!1,center:[15.3350758,49.7417517]});l.addControl(new mapboxgl.NavigationControl),l.addControl(new mapboxgl.AttributionControl({compact:!0,customAttribution:'obrazový podkres <a target="_blank" href="https://samizdat.cz">Samizdat</a>, data <a target="_blank" href="http://vdp.cuzk.cz/">ČÚZK</a> a <a target="_blank" href="http://volby.cz/">ČSÚ</a>'})),l.scrollZoom.disable(),l.on("click",function(a){l.scrollZoom.enable()});var i="part_1";l.on("load",function(){l.addLayer({id:"data",type:"fill",source:{type:"vector",tiles:[n+"/eu-19-okrsky/tiles/{z}/{x}/{y}.pbf"]},"source-layer":"data",paint:{"fill-color":["case",["has","part_1"],["interpolate",["linear"],["/",["get","part_1"],["get","hlasy_platne"]],0,"#f2f0f7",.1,"#dadaeb",.3,"#bcbddc",.5,"#9e9ac8",.7,"#807dba",.8,"#6a51a3",1,"#4a1486"],"white"],"fill-opacity":.8,"fill-outline-color":"hsl(0, 0%, 52%)"}}),l.on("mousemove",function(a){var e=l.queryRenderedFeatures(a.point,{layers:["data"]});if(e.length>0){var t=Math.round(e[0].properties[i]/e[0].properties.hlasy_platne*1e3)/10||0;document.getElementById("legend").innerHTML="Strana "+r[i.replace("part_","")].zkr+" získala v okrsku č. "+e[0].properties.Cislo+" v obci "+e[0].properties.nazob+" "+t+" % hlasů ("+(0|e[0].properties[i])+" ze "+e[0].properties.hlasy_platne+" platných)."}else document.getElementById("legend").innerHTML="Vyberte obec v mapě"}),document.getElementById("party_select").addEventListener("change",function(a){var e=a.target.selectedOptions[0].value;i=e;var t=["case",["has",e],["interpolate",["linear"],["/",["get",e],["get","hlasy_platne"]],0,"#f2f0f7",.1,"#dadaeb",.3,"#bcbddc",.5,"#9e9ac8",.7,"#807dba",.8,"#6a51a3",1,"#4a1486"],"white"];l.setPaintProperty("data","fill-color",t)})})}]);</script>
