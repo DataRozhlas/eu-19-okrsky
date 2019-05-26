@@ -1,9 +1,9 @@
-title: "Data z mobilů:<br>Praha se denně nafoukne o polovinu, v centru jsou návštěvníci v převaze"
-perex: "Skoro 140 tisíc lidí přijede do Prahy každý den za prací. Míří hlavně do kancelářských budov a do centra města. S nimi pak dorazí i přes půl milionu návštěvníků. Ukázala to analýza dat o pohybu mobilních telefonů, kterou si nyní město nechává zpracovat."
+title: "Piráti ve městech, ANO na venkově. Jak volili vaši sousedé?"
+perex: "Proklikejte si nejpodrobnější mapu eurovoleb v Česku."
 coverimg: https://interaktivni.rozhlas.cz/brexit/media/cover.jpg
 coverimg_note: "Foto <a href='https://ctk.cz'>ČTK</a>"
 styles: ['https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css']
-libraries: ['https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'] #jquery, d3, highcharts, datatables
+libraries: ['https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js', jquery] #jquery, d3, highcharts, datatables
 options: [noheader, nopic] #wide, noheader (, nopic)
 ---
 <left>
@@ -22,8 +22,14 @@ Detaily si můžete prohlédnout v následující mapě, kterou z dat mobilních
 
 <wide>
 <div id="party_select"></div>
+<form action="?" id='frm-geocode'>
+	<div class="inputs">
+	<input type="text" id="inp-geocode" placeholder="Zadejte obec či adresu...">
+	<input type="submit" id="inp-btn" value="Najít">
+	</div>
+</form>
 <div id="map"></div>
-<div id="legend">Vyberte obec v mapě.</div>
+<div id="legend">Vyberte okrsek v mapě.</div>
 </wide>
 
 ## Data na prodej

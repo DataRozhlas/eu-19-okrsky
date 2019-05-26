@@ -6,7 +6,7 @@ ns = '{http://www.volby.cz/ep/}'
 
 #%%
 partaje = {}
-part_data = ET.parse('./data/ep14/eprkl.xml').getroot()
+part_data = ET.parse('./data/ep19/eprkl.xml').getroot()
 for row in part_data:
     partaje[row.find(ns + 'ESTRANA').text] = {
         'naz': row.find(ns + 'ZKRATKAE30').text,
@@ -15,13 +15,13 @@ for row in part_data:
 
 #%%
 obce = {}
-ob_data = ET.parse('./data/ep14/cisob.xml').getroot()
+ob_data = ET.parse('./data/ep19/epcoco.xml').getroot()
 for row in ob_data:
-    obce[int(row.find(ns + 'OBEC_PREZ').text)] = row.find(ns + 'NAZEVOBCE').text
+    obce[int(row.find(ns + 'OBEC').text)] = row.find(ns + 'NAZEVOBCE').text
 
 #%%
 data = {}
-okr_data = ET.parse('./data/ep14/ept2.xml').getroot()
+okr_data = ET.parse('./data/ep19/ept2.xml').getroot()
 
 for row in okr_data:
     obec = int(row.find(ns + 'OBEC').text)
@@ -40,7 +40,7 @@ for row in okr_data:
     }
 
 #%%
-okr_partaj_data = ET.parse('./data/ep14/ept2p.xml').getroot()
+okr_partaj_data = ET.parse('./data/ep19/ept2p.xml').getroot()
 for row in okr_partaj_data:
     obec = int(row.find(ns + 'OBEC').text)
     okrsek = int(row.find(ns + 'OKRSEK').text)
