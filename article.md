@@ -1,24 +1,11 @@
-title: "Piráti ve městech, ANO na venkově. Jak volili vaši sousedé?"
-perex: "Proklikejte si nejpodrobnější mapu eurovoleb v Česku."
+title: "Koho volili vaši sousedi? Prohlédněte si nejpodrobnější mapu výsledků voleb do Evropského parlamentu"
+perex: "ANO zvítězilo ve všech krajích, výjimku tvoří hlavní město Praha, kde hnutí Andreje Babiše skončilo na čtvrtém místě za koalicí STAN a TOP 09, Piráty a ODS. Detailnější pohled na volební mapu ukazuje pestřejší obrázek: Zatímco v obci Sloupno na Havlíčkobrodsku získal vítěz voleb přes 73 procent hlasů, například v Jiříkově na Bruntálsku nebo v jihočeských Hartmanicích pro něj nehlasoval nikdo. A jak to dopadlo u vás? Projděte si interaktivní mapu volební účasti a výsledků všech stran ve všech okrscích."
 coverimg: https://interaktivni.rozhlas.cz/brexit/media/cover.jpg
 coverimg_note: "Foto <a href='https://ctk.cz'>ČTK</a>"
 styles: ['https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css']
 libraries: ['https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js', jquery] #jquery, d3, highcharts, datatables
 options: [noheader, nopic] #wide, noheader (, nopic)
 ---
-<left>
-	<p>
-	<b>KAREL HYNEK MÁCHA</b>
-	</p><p>
-	Karel Hynek Mácha (16. listopadu 1810 Praha-Malá Strana[1] – 6. listopadu 1836 Litoměřice[2]) byl český básník a prozaik, představitel českého romantismu a zakladatel moderní české poezie. Proslavil se jak svým životem, tak dílem, jemuž dominuje Máj (1836).
-	</p>
-</left>
-
-Během dne se lidé v Praze soustřeďují v okolí administrativních center a obchodů, po poledni se tak nejvíc zahustí okolí Andělu, centrum Prahy (Vodičkova ulice a Petrské náměstí) a Brumlovka nedaleko Budějovické. Na poslední jmenované adrese sídlí řada velkých korporací, mezi nimi i Microsoft nebo ČEZ. Pro srovnání, na zmíněných místech je ve "špičce" okolo šesti stovek osob na jeden hektar, průměr Prahy je 25 obyvatel na [hektar](https://cs.wikipedia.org/wiki/Hektar) (Václavské náměstí má rozlohu asi 4 hektary).
-
-Naopak v noci se nejvíc lidí se "namačká" ve Vršovicích, jde o 430 osob na hektar.
-
-Detaily si můžete prohlédnout v následující mapě, kterou z dat mobilních operátorů zpracoval pražský [Institut plánování a rozvoje](http://www.iprpraha.cz/).
 
 <wide>
 <div id="party_select"></div>
@@ -32,10 +19,8 @@ Detaily si můžete prohlédnout v následující mapě, kterou z dat mobilních
 <div id="legend">Vyberte okrsek v mapě.</div>
 </wide>
 
-## Data na prodej
+Volební účast se v celé republice oproti minulým volbám do Evropského parlamentu výrazně zvýšila. Tradičně nižší byla ovšem v pohraničí, zejména v severozápadních Čechách a na severní Moravě: méně než dvacet procent oprávněných voličů přišlo k urnám například v Ostravě-Vítkovicích, v Karviné, v Orlové, v Mostě, Jirkově či v Ústí nad Labem-Neštěmicích. Naproti tomu ve středočeských Černošicích, v Praze 6 nebo v Brně-Žabovřeskách byla účast vyšší než 40 procent.
 
-I pokud netelefonujeme nebo neposíláme SMS, telefon pravidelně komunikuje s vysílači v síti mobilního operátora. Z dat o síle signálu a použité anténě je možné odvodit, kde se přibližně telefon nachází a jak dlouhou dobu na místě strávil.
+Z větších měst dosáhlo vítězně hnutí ANO nejlepších výsledků v Litvínově, v Karviné, v Mostě či v Havířově – tam všude sebralo při relativně nižší účasti přes 30 procent platných hlasů. Naopak v městských částech Praha 1, 2 a 7 nebo v již zmíněných Černošicích podpořilo kandidáty Andreje Babiše méně než 10 procent voličů.
 
-Mobilní operátor má ["zákonnou povinnost"](https://www.zakonyprolidi.cz/cs/2005-127/zneni-20160919#p97-3) takové informace uchovávat, a to půl roku do minulosti, přistupovat k nim ale mohou jen bezpečnostní složky, typicky policie nebo rozvědka.
-
-Operátoři ale obdobné informace mohou anonymizovat (tedy "zbavit" identifikace konkrétního uživatele) a agregovat, tedy spojit informace o jednotlivcích do jakýchsi skupin. Výsledná obecná čísla pak přeprodávají dál, například marketingovým firmám či dopravním analytikům. Zpětně z nich nejde dovodit, kde se pohybuje každý jednotlivec, dávají ale určitý přehled o obecném chování obyvatel nějakého místa.
+Druhá ODS bodovala nejvýrazněji v okrajových částech Prahy a v pražských satelitech jako jsou Jesenice, Říčany nebo Čelákovice, ale přes 20 procent hlasů dostala také například v Poděbradech. Naopak v Karviné, Orlové, Havířově či Kroměříži byl její výsledek nižší než deset procent.

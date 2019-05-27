@@ -1,5 +1,6 @@
 ﻿import { partys } from "./partys";
 import { reslts } from "./reslts";
+import { breaks } from "./breaks";
 
 var host = 'https://data.irozhlas.cz'
 if (window.location.hostname == 'localhost') {
@@ -18,7 +19,7 @@ var map = new mapboxgl.Map({
     container: "map",
     style: "https://data.irozhlas.cz/mapa-domu/map_styl/style.json",
     zoom: 6.85,
-    maxZoom: 14,
+    maxZoom: 15,
     attributionControl: false,
     center: [15.3350758, 49.7417517],
 });
@@ -54,17 +55,17 @@ map.on('load', function() {
                     ['linear'], 
                     ['/', ['get', 'hlasy_platne'], ['get', 'zapsani']],
                     0, '#f2f0f7',
-                    0.05, '#2166ac',
-                    0.1, '#67a9cf',
-                    0.15, '#d1e5f0',
-                    0.30, '#fddbc7',
-                    0.60, '#ef8a62',
-                    1.0, '#b2182b',
+                    0.2013, '#fee5d9',
+                    0.2666, '#fcbba1',
+                    0.3279, '#fc9272',
+                    0.4004, '#fb6a4a',
+                    0.505, '#de2d26',
+                    1.0, '#a50f15',
                 ],
                 'white',
             ], 
             "fill-opacity": 0.8,
-            "fill-outline-color": "hsl(0, 0%, 52%)",
+            "fill-outline-color": "hsla(0, 0%, 52%, 0.4)",
         }
     });
 
@@ -109,10 +110,10 @@ map.on('load', function() {
             }
         }
     });
-
     document.getElementById('party_select').addEventListener("change", function(e) {
         var sel_part = e.target.selectedOptions[0].value;
         party_id = sel_part;
+        if (party_id != 'ucast') {
         var stl = [
             'case', 
             ['has', sel_part],
@@ -121,30 +122,30 @@ map.on('load', function() {
                     ['linear'], 
                     ['/', ['get', sel_part], ['get', 'hlasy_platne']],
                     0, '#f2f0f7',
-                    0.05, '#2166ac',
-                    0.1, '#67a9cf',
-                    0.15, '#d1e5f0',
-                    0.30, '#fddbc7',
-                    0.60, '#ef8a62',
-                    1.0, '#b2182b',
+                    breaks[party_id][0], '#fee5d9',
+                    breaks[party_id][1], '#fcbba1',
+                    breaks[party_id][2], '#fc9272',
+                    breaks[party_id][3], '#fb6a4a',
+                    breaks[party_id][4], '#de2d26',
+                    1.0, '#a50f15',
                 ],
             'white',
         ]
-        if (party_id == 'ucast') {
+        } else {
             var stl = [
                 'case', 
-                ['has', sel_part],
+                ['has', 'zapsani'],
                     [
                         'interpolate', 
                         ['linear'], 
                         ['/', ['get', 'hlasy_platne'], ['get', 'zapsani']],
                         0, '#f2f0f7',
-                        0.5, '#2166ac',
-                        0.20, '#67a9cf',
-                        0.30, '#d1e5f0',
-                        0.50, '#fddbc7',
-                        0.70, '#ef8a62',
-                        1.0, '#b2182b',
+                        0.2013, '#fee5d9',
+                        0.2666, '#fcbba1',
+                        0.3279, '#fc9272',
+                        0.4004, '#fb6a4a',
+                        0.505, '#de2d26',
+                        1.0, '#a50f15',
                     ],
                 'white',
             ]
@@ -178,7 +179,7 @@ $("#inp-geocode").on("focus input", () => $("#inp-geocode").css("border-color", 
         }
         map.flyTo({
           center: [x, y],
-          zoom: 12,
+          zoom: 14,
         });
       }, "xml");
     }
