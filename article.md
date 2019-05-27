@@ -7,6 +7,8 @@ libraries: ['https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js', jq
 options: [noheader, nopic] #wide, noheader (, nopic)
 ---
 
+_Nad mapou vyberte stranu, která vás zajímá:_
+
 <wide>
 <div id="party_select"></div>
 <form action="?" id='frm-geocode'>
