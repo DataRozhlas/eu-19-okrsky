@@ -24,6 +24,9 @@ var map = new mapboxgl.Map({
     center: [15.3350758, 49.7417517],
 });
 
+map.getCanvas().style.cursor = 'default';
+map.fitBounds([[12.09,51.06],[18.87,48.55]]);
+
 map.addControl(new mapboxgl.NavigationControl());
 map.addControl(new mapboxgl.AttributionControl({
     compact: true,
@@ -68,7 +71,16 @@ map.on('load', function() {
             "fill-outline-color": "hsla(0, 0%, 52%, 0.4)",
         }
     });
-
+    map.addLayer({
+        id: "lbls",
+        source: {
+            tiles: [
+                "https://interaktivni.rozhlas.cz/tiles/ton_l2/{z}/{x}/{y}.png",
+            ],
+            type: "raster",
+            tileSize: 256,
+        },
+    });
     map.on('mousemove', function(e) {
         var d = map.queryRenderedFeatures(e.point, {
             layers: ['data']
@@ -88,7 +100,7 @@ map.on('load', function() {
                 + ' ze ' 
                 + d[0].properties.zapsani + ' zapsaných voličů).'
             } else {
-                document.getElementById('legend').innerHTML = 'Vyberte okrsek v mapě';
+                document.getElementById('legend').innerHTML = '<b>Vyberte okrsek v mapě.</b>';
             }
         } else {
             if (d.length > 0) {
@@ -106,7 +118,7 @@ map.on('load', function() {
                 + ' ze ' 
                 + d[0].properties.hlasy_platne + ' platných).'
             } else {
-                document.getElementById('legend').innerHTML = 'Vyberte okrsek v mapě';
+                document.getElementById('legend').innerHTML = '<b>Vyberte okrsek v mapě.</b>';
             }
         }
     });
@@ -152,6 +164,18 @@ map.on('load', function() {
         }
         map.setPaintProperty('data', 'fill-color', stl);
     });
+    if (window.location.href.includes("latlng")){ //posunuti mapy dle url
+        var ll = window.location.href.split("latlng=")[1].split('&')[0];
+        map.setCenter([parseFloat(ll.split('|')[1]), parseFloat(ll.split('|')[0])]);
+        map.setZoom(parseInt(ll.split('|')[2]));
+    };
+});
+
+
+
+map.on('moveend', function(e) { // poloha do url pro sdileni
+  var cen = map.getCenter().wrap();
+  window.history.pushState('', '', window.location.pathname + '?latlng=' + cen.lat + '|' + cen.lng + '|' + map.getZoom());
 });
   
 $("#inp-geocode").on("focus input", () => $("#inp-geocode").css("border-color", "black"));

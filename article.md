@@ -16,7 +16,7 @@ options: [noheader, nopic] #wide, noheader (, nopic)
 	</div>
 </form>
 <div id="map"></div>
-<div id="legend">Vyberte okrsek v mapě.</div>
+<div id="legend"><b>Vyberte okrsek v mapě.</b></div>
 </wide>
 
 Volební účast se v celé republice oproti minulým volbám do Evropského parlamentu výrazně zvýšila. Tradičně nižší byla ovšem v pohraničí, zejména v severozápadních Čechách a na severní Moravě: méně než dvacet procent oprávněných voličů přišlo k urnám například v Ostravě-Vítkovicích, v Karviné, v Orlové, v Mostě, Jirkově či v Ústí nad Labem-Neštěmicích. Naproti tomu ve středočeských Černošicích, v Praze 6 nebo v Brně-Žabovřeskách byla účast vyšší než 40 procent.
