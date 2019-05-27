@@ -73,6 +73,7 @@ map.on('load', function() {
     });
     map.addLayer({
         id: "lbls",
+        type: "raster",
         source: {
             tiles: [
                 "https://interaktivni.rozhlas.cz/tiles/ton_l2/{z}/{x}/{y}.png",
